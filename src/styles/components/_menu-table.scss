@@ -1,0 +1,50 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.menu-table {
+  width: 100%;
+  border-top: 1px solid $primary-color;
+  padding-top: 25px;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__basic {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__cell {
+    width: 162px;
+    word-wrap: break-word;
+    @include secondary-header();
+    color: $primary-color;
+    margin-bottom: 15px;
+  }
+
+  &__btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+
+    img {
+      width: 30px;
+      height: 32px;
+      transition: opacity 0.2s;
+    }
+
+    &:hover img {
+      opacity: 0.7;
+    }
+  }
+}

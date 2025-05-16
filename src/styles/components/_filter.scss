@@ -1,0 +1,32 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.filter {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+
+  &__field {
+    padding: 5px 6px;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    background-color: #fff;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    color: $secondary-color;
+    @include secondary-header();
+  }
+
+  &__select {
+    width: 150px; // Задаёт ширину обёртки
+  }
+
+  &__export {
+    background: none;
+    color: $secondary-color;
+    @include secondary-header();
+    border: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,61 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+  gap: 8px;
+
+  &__item,
+  &__arrow {
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    color: $primary-color-70;
+    cursor: pointer;
+    @include secondary-header();
+
+    &:hover:not(:disabled) {
+      background-color: #f0f0f0;
+    }
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.4;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 1px solid $primary-color-70;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 0;
+    line-height: 1;
+    cursor: pointer;
+
+    img {
+        width: 7px;
+        height: 7px;
+    }
+
+    &--prev {
+        transform: translateX(-1px);
+    }
+
+    &--next {
+        transform: translateX(1px);
+    }
+  }
+
+  &__item--active {
+    background-color: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}

@@ -1,0 +1,133 @@
+@use '../base/variables' as *;
+@use '../base/mixins' as *;
+
+.sidebar {
+  width: 400px;
+  height: 100vh;
+  padding-left: 20px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: $primary-color transparent;
+
+  &::-webkit-scrollbar {
+    height: 100px;
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $primary-color;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &__company-data {
+    width: 257px;
+    padding: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $primary-color;
+  }
+
+  &__logo {
+    background-color: $primary-color;
+    color: $white-100;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    @include main-heading();
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+  }
+
+  &__title {
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__company {
+    @include main-heading();
+    color: $primary-color;
+  }
+
+  &__user {
+    @include secondary-header();
+    color: $secondary-color;
+  }
+
+  &__section {
+    display: flex;
+    align-items: center;
+    @include main-heading();
+    color: $primary-color;
+    padding-top: 5px;
+
+    img {
+        width: 42px;
+        height: 42px;
+    }
+    span {
+        padding-left: 10px;
+    }
+  }
+
+  &__dropdown {
+    box-sizing: border-box;
+    width: 250px;
+    padding: 15px 0 10px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid $secondary-color;
+  }
+
+  &__label {
+      @include secondary-header();
+        color: $secondary-color;
+        margin-bottom: 4px;
+  }
+
+  &__select {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  &__nav {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    text-decoration: none;
+    margin-top: 5px;;
+    padding: 10px 10px;
+    color: $primary-color;
+    @include menu-text();
+
+    &:hover {
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    &--active {
+      font-weight: bold;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
