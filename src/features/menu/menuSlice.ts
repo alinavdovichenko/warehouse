@@ -12,12 +12,30 @@ type MenuItem = {
 
 export const fetchMenu = createAsyncThunk(
   'menu/fetchMenu',
-  async ({ filialId, limit, page }: { filialId: number; limit: number; page: number }) => {
-    const response = await api.get(`/filial/${filialId}/menu/?limit=${limit}&page=${page}`);
+  async ({
+    filialId,
+    limit,
+    page,
+    active,
+  }: {
+    filialId: number;
+    limit: number;
+    page: number;
+    active?: 'active' | 'no_active';
+  }) => {
+    const params = new URLSearchParams({
+      limit: String(limit),
+      page: String(page),
+    });
+
+    if (active) {
+      params.append('active', active);
+    }
+
+    const response = await api.get(`/filial/${filialId}/menu/?${params.toString()}`);
     return response.data;
   }
 );
-
 
 const menuSlice = createSlice({
   name: 'menu',
