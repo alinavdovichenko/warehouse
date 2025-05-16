@@ -4,6 +4,6 @@ GET https://testjob.checkport.ru/filial/ HTTP/1.1
 ###
 
 # 2. 
-GET https://testjob.checkport.ru/image/ HTTP/1.1
+GET https://testjob.checkport.ru/filial/1/menu/?limit=1&page=1 HTTP/1.1
 
 ###

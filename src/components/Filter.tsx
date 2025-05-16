@@ -1,7 +1,17 @@
 import React from 'react';
 import CustomSelect from './CustomSelect';
+import { useAppDispatch } from '../stores/hooks';
+import { setFilters } from '../features/menu/menuSlice';
 
 const Filter: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const handleStatusChange = (value: string) => {
+    dispatch(setFilters({
+      active: value === 'Активно' ? true : value === 'Не активно' ? false : null,
+    }));
+  };
+
   return (
     <div className="filter">
       <div className="filter__field">Название меню</div>
@@ -9,9 +19,9 @@ const Filter: React.FC = () => {
       <div className="filter__field">Торговая точка</div>
       <div className="filter__select">
         <CustomSelect
-          selected="Активно"
-          options={['Активно', 'Не активно']}
-          onChange={() => {}}
+          selected="Все"
+          options={['Все', 'Активно', 'Не активно']}
+          onChange={handleStatusChange}
         />
       </div>
       <button className="filter__export">Экспорт</button>
