@@ -2,8 +2,9 @@
 @use '../base/mixins' as *;
 
 .sidebar {
-  width: 400px;
+  width: 290px;
   height: 100vh;
+  flex-shrink: 0;
   padding-left: 20px;
   background-color: #fff;
   border-right: 1px solid #ccc;
