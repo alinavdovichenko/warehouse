@@ -51,7 +51,7 @@ const Sidebar = () => {
         <label className="sidebar__label">Филиалы</label>
         <CustomSelect
           options={filials.map(f => f.name)}
-          selected={selected?.name || 'Иркутск'}
+          selected={selected?.name || '...'}
           onChange={handleFilialChange}
         />
       </div>
