@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface CustomSelectProps {
   options: string[];
@@ -8,14 +8,25 @@ interface CustomSelectProps {
 
 const CustomSelect: React.FC<CustomSelectProps> = ({ options, selected, onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   const handleOptionClick = (option: string) => {
     onChange(option);
     setIsOpen(false);
   };
 
+    useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className="custom-select">
+    <div className="custom-select" ref={ref}>
       <div
         className={`custom-select__selected ${isOpen ? 'custom-select__selected--open' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
