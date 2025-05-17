@@ -9,6 +9,7 @@
   &__wrapper {
     display: flex;
     flex-direction: column;
+    min-width: 100%;
   }
   
   &__row {

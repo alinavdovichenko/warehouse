@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../stores/hooks';
 import { fetchMenu, setCurrentPage, setFilters  } from '../features/menu/menuSlice';
-import Filter from '../components/Filter';
 import MenuTable from '../components/MenuTable';
 import Pagination from '../components/Pagination';
 
@@ -44,17 +43,12 @@ const MenuPage: React.FC = () => {
         <p>Загрузка...</p>
       ) : (
         <>
-          <div>
-            <Filter />
             <MenuTable rows={items} />
-          </div>
-          <div>
             <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             />
-          </div>
         </>
       )}
     </div>

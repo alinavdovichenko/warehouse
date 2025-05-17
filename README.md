@@ -1,3 +1,15 @@
+### 1. Перейдите в директорию:
+
+cd warehouse-app
+
+### 2. Установите зависимости:
+
+npm i
+
+### 3. Запустите проект:
+
+npm run start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
